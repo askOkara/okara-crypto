@@ -603,8 +603,8 @@ export async function decryptMessage(encryptedData: string, privateKeyPem: strin
         // Derive encryption key using HKDF
         const encryptionKey = await deriveHKDFKey(
             sharedSecret,
-            new TextEncoder().encode('okara-e2ee-salt'),
-            new TextEncoder().encode('okara-e2ee-key'),
+            new TextEncoder().encode('bti-e2ee-salt'),
+            new TextEncoder().encode('bti-e2ee-key'),
             32
         );
 
@@ -627,7 +627,7 @@ export async function decryptMessage(encryptedData: string, privateKeyPem: strin
             {
                 name: 'AES-GCM',
                 iv: iv,
-                additionalData: new TextEncoder().encode('okara-e2ee-message')
+                additionalData: new TextEncoder().encode('bti-e2ee-message')
             },
             cryptoKey,
             encryptedMessageWithTag

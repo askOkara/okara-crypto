@@ -242,7 +242,7 @@ export async function encryptPrivateKey(privateKey: string, passcode: string, sa
             {
                 name: 'AES-GCM',
                 iv: iv,
-                additionalData: new TextEncoder().encode('okara-e2ee-private-key')
+                additionalData: new TextEncoder().encode('bti-e2ee-private-key')
             },
             cryptoKey,
             new TextEncoder().encode(privateKey)
@@ -317,7 +317,7 @@ export async function decryptPrivateKey(encryptedPrivateKey: string, passcode: s
         {
             name: 'AES-GCM',
             iv: iv,
-            additionalData: new TextEncoder().encode('okara-e2ee-private-key')
+            additionalData: new TextEncoder().encode('bti-e2ee-private-key')
         },
         cryptoKey,
         encrypted
@@ -534,8 +534,8 @@ export async function encryptMessage(message: string, publicKeyBase64: string): 
         // Derive encryption key using HKDF
         const encryptionKey = await deriveHKDFKey(
             sharedSecret,
-            new TextEncoder().encode('okara-e2ee-salt'),
-            new TextEncoder().encode('okara-e2ee-key'),
+            new TextEncoder().encode('bti-e2ee-salt'),
+            new TextEncoder().encode('bti-e2ee-key'),
             32
         );
 
@@ -556,7 +556,7 @@ export async function encryptMessage(message: string, publicKeyBase64: string): 
             {
                 name: 'AES-GCM',
                 iv: iv,
-                additionalData: new TextEncoder().encode('okara-e2ee-message')
+                additionalData: new TextEncoder().encode('bti-e2ee-message')
             },
             cryptoKey,
             new TextEncoder().encode(message)

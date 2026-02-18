@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Trigger project deployment
         run: |
-          curl -sS -X POST \
+          curl -L -sS -X POST \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.BTI_CHAT_DISPATCH_TOKEN }}" \
             https://api.github.com/repos/buildthatidea/bti-chat/dispatches \

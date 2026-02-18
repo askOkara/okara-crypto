@@ -1,3 +1,5 @@
+[![Trigger project deploy](https://github.com/askOkara/okara-crypto/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/askOkara/okara-crypto/actions/workflows/main.yml)
+
 # Okara Crypto
 
 Pure TypeScript/JavaScript end-to-end encryption library using X25519 key exchange.

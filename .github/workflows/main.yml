@@ -11,7 +11,7 @@ jobs:
     # 👇 THIS is what makes it show as a Production deployment
     environment:
       name: production
-      url: https://your-production-url.com
+      url: https://okara.ai
 
     steps:
       - name: Trigger project deployment

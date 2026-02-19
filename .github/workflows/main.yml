@@ -1,12 +1,18 @@
-name: Trigger project deploy
+name: Trigger Production Deploy
 
 on:
   push:
-    branches: [main, staging]
+    branches: [main]
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
+
+    # 👇 THIS is what makes it show as a Production deployment
+    environment:
+      name: production
+      url: https://your-production-url.com
+
     steps:
       - name: Trigger project deployment
         run: |

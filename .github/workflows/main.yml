@@ -1,12 +1,16 @@
-name: Trigger project deploy
+name: Trigger Production Deploy
 
 on:
   push:
-    branches: [main, staging]
+    branches: [main]
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://okara.ai
+
     steps:
       - name: Trigger project deployment
         run: |

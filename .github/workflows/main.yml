@@ -5,7 +5,7 @@ on:
     branches: [main, staging]
 
 jobs:
-  trigger:
+  deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger project deployment
@@ -14,4 +14,9 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.BTI_CHAT_DISPATCH_TOKEN }}" \
             https://api.github.com/repos/buildthatidea/bti-chat/dispatches \
-            -d '{"event_type":"okara-crypto-deploy"}'
+            -d '{
+              "event_type":"okara-crypto-deploy",
+              "client_payload": {
+                "branch": "${{ github.ref_name }}"
+              }
+            }'

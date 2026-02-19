@@ -7,8 +7,6 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-
-    # 👇 THIS is what makes it show as a Production deployment
     environment:
       name: production
       url: https://okara.ai

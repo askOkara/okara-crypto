@@ -5,9 +5,6 @@
  *
  * This file contains server-side E2EE functions for:
  * - Message encryption with X25519 public keys
- * - Database operations
- * - Validation helpers
- *
  * Note: Key generation and passcode hashing are done client-side
  */
 

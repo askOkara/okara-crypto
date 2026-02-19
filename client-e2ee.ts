@@ -40,7 +40,12 @@ async function getArgon2Instance() {
  * Convert Uint8Array to base64 string
  */
 function uint8ArrayToBase64(bytes: Uint8Array): string {
-    return btoa(String.fromCharCode(...bytes));
+    let bin = '';
+    const chunkSize = 0x8000; // 32KB chunks to avoid argument/stack limits
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+        bin += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+    }
+    return btoa(bin);
 }
 
 /**
